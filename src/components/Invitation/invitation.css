@@ -1,0 +1,437 @@
+.invite {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+.section {
+  position: relative;
+  padding: clamp(5rem, 14vh, 9rem) clamp(1.5rem, 6vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section__title {
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  margin: 0.6rem auto 0;
+  max-width: 20ch;
+}
+
+/* ═══════════ HÉROE ═══════════ */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 8%, #1f5744 0%, #123527 50%, #0b2018 100%);
+}
+
+.hero__bg {
+  position: absolute;
+  inset: -20% 0 0 0;
+  height: 130%;
+  background:
+    radial-gradient(60% 40% at 50% 100%, rgba(200,162,74,0.16), transparent 70%),
+    radial-gradient(50% 50% at 20% 20%, rgba(120,196,164,0.12), transparent 60%),
+    radial-gradient(50% 50% at 80% 30%, rgba(200,162,74,0.08), transparent 60%);
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  max-width: 720px;
+}
+
+.hero__title {
+  font-size: clamp(3rem, 12vw, 8rem);
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(180deg, #f4ead7 0%, #e2c684 55%, #c8a24a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0.4rem 0;
+}
+
+.hero__lead {
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  line-height: 1.7;
+  font-weight: 300;
+  color: var(--cream-dim);
+  max-width: 46ch;
+  margin: 0 auto;
+}
+.hero__lead em {
+  color: var(--gold-soft);
+  font-style: italic;
+}
+
+.hero__date {
+  margin-top: 2rem;
+  color: var(--gold);
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  opacity: 0.7;
+}
+.scroll-cue__line {
+  width: 1px;
+  height: 42px;
+  background: linear-gradient(var(--gold), transparent);
+  animation: cueDrop 2s ease-in-out infinite;
+  transform-origin: top;
+}
+@keyframes cueDrop {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.4; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+/* ═══════════ CONTADOR · sección CLARA (champán) ═══════════ */
+.countdown-section {
+  background: linear-gradient(180deg, #f6efe1 0%, #efe3cf 100%);
+  color: var(--ink);
+}
+.countdown-section .eyebrow {
+  color: var(--gold-deep);
+}
+.countdown-section .section__title {
+  color: var(--ink);
+}
+.countdown {
+  display: flex;
+  gap: clamp(0.5rem, 3vw, 2.5rem);
+  margin-top: 3rem;
+  align-items: flex-start;
+}
+.cd-unit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: clamp(58px, 16vw, 104px);
+}
+.cd-unit__num {
+  font-size: clamp(2.4rem, 9vw, 4.6rem);
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.cd-unit__label {
+  margin-top: 0.7rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+.cd-unit__sep {
+  position: absolute;
+  right: calc(-1 * clamp(0.25rem, 1.5vw, 1.25rem));
+  top: clamp(1rem, 4vw, 2rem);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold-deep);
+  opacity: 0.6;
+}
+.countdown__done {
+  margin-top: 2.5rem;
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  color: var(--gold-deep);
+  font-style: italic;
+}
+
+/* ═══════════ DÓNDE & CUÁNDO ═══════════ */
+.where-section {
+  overflow: hidden;
+  background: linear-gradient(180deg, #0b2018, #103025);
+}
+.where__bg {
+  position: absolute;
+  inset: -15% -10%;
+  background:
+    radial-gradient(40% 40% at 15% 30%, rgba(200,162,74,0.12), transparent),
+    radial-gradient(45% 45% at 85% 70%, rgba(120,196,164,0.10), transparent);
+  pointer-events: none;
+}
+.where__content {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+}
+.where__addr {
+  color: var(--cream-dim);
+  font-weight: 300;
+  margin-top: 1rem;
+  font-size: 1.05rem;
+}
+.where__addr--date {
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-top: 0.3rem;
+}
+.map-frame {
+  margin: 2.5rem 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(198,161,91,0.3);
+  box-shadow: 0 30px 60px -30px rgba(0,0,0,0.7);
+  aspect-ratio: 16 / 10;
+  background: #08170f;
+}
+.map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: saturate(0.85) contrast(1.05);
+}
+
+/* ═══════════ BOTONES ═══════════ */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.8rem;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 0.4s var(--ease-lux), background 0.4s, box-shadow 0.4s, color 0.4s;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn:active { transform: translateY(-1px); }
+
+.btn--gold {
+  background: linear-gradient(180deg, #e2c684, #c8a24a);
+  color: #0b2018;
+  box-shadow: 0 12px 30px -12px rgba(200,162,74,0.7);
+}
+.btn--ghost {
+  border: 1px solid rgba(198,161,91,0.5);
+  color: var(--gold-soft);
+}
+.btn--ghost:hover {
+  background: rgba(198,161,91,0.08);
+  border-color: var(--gold);
+}
+.btn--whatsapp {
+  width: 100%;
+  background: linear-gradient(180deg, #e2c684, #c8a24a);
+  color: #0b2018;
+  padding: 1.1rem;
+  box-shadow: 0 14px 34px -14px rgba(200,162,74,0.7);
+}
+
+/* ═══════════ HOMENAJE · sección CLARA (champán) ═══════════ */
+.tribute-section {
+  overflow: hidden;
+  background: linear-gradient(180deg, #efe3cf 0%, #f6efe1 45%, #efe3cf 100%);
+  color: var(--ink);
+}
+.tribute-section .eyebrow {
+  color: var(--gold-deep);
+}
+.tribute__bg {
+  position: absolute;
+  inset: -20% 0;
+  height: 140%;
+  background:
+    radial-gradient(45% 40% at 50% 25%, rgba(200,162,74,0.14), transparent 70%),
+    radial-gradient(40% 40% at 50% 90%, rgba(31,87,68,0.08), transparent 70%);
+  pointer-events: none;
+}
+.tribute__head {
+  position: relative;
+  max-width: 760px;
+}
+.tribute__quote {
+  position: relative;
+  font-size: clamp(1.8rem, 5.2vw, 3.2rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.28;
+  margin-top: 1.4rem;
+  color: var(--ink);
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tribute__mark {
+  font-family: var(--font-serif);
+  color: var(--gold-deep);
+  font-size: 1.4em;
+  line-height: 0;
+  margin-right: 0.08em;
+  vertical-align: -0.35em;
+}
+.tribute__msg {
+  margin: 0 auto;
+  max-width: 48ch;
+  color: var(--ink-soft);
+  font-weight: 400;
+  line-height: 1.75;
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
+}
+.tribute__grid {
+  position: relative;
+  list-style: none;
+  margin-top: 3.5rem;
+  width: 100%;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+.facet {
+  padding: 2.2rem 1.6rem;
+  border: 1px solid rgba(154,122,48,0.28);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbf6ec 100%);
+  box-shadow: 0 20px 40px -28px rgba(23,53,42,0.35);
+  text-align: center;
+  transition: border-color 0.5s, transform 0.5s var(--ease-lux),
+    box-shadow 0.5s;
+}
+.facet:hover {
+  border-color: var(--gold-deep);
+  transform: translateY(-4px);
+  box-shadow: 0 26px 46px -26px rgba(23,53,42,0.45);
+}
+.facet__mark {
+  color: var(--gold-deep);
+  font-size: 0.9rem;
+}
+.facet__word {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.6rem;
+  margin: 0.6rem 0 0.6rem;
+  color: var(--gold-deep);
+}
+.facet__detail {
+  color: var(--ink-soft);
+  font-weight: 400;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+/* ═══════════ RSVP ═══════════ */
+.rsvp-section {
+  background: radial-gradient(120% 90% at 50% 100%, #1f5744 0%, #103025 55%, #0b2018 100%);
+}
+.rsvp__card {
+  width: 100%;
+  max-width: 520px;
+  padding: clamp(2rem, 6vw, 3.2rem);
+  border-radius: 20px;
+  border: 1px solid rgba(200,162,74,0.28);
+  background: linear-gradient(180deg, rgba(31,87,68,0.42), rgba(11,32,24,0.6));
+  box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8);
+}
+.rsvp__note {
+  margin-top: 1rem;
+  color: var(--cream-dim);
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.rsvp__form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  text-align: left;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+.field__label {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.field input,
+.field select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  background: rgba(8,23,15,0.55);
+  border: 1px solid rgba(200,162,74,0.28);
+  color: var(--cream);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(198,161,91,0.15);
+}
+.field input:disabled {
+  opacity: 0.4;
+}
+.field-row {
+  display: flex;
+  gap: 1rem;
+}
+.rsvp__form .btn--whatsapp {
+  margin-top: 0.8rem;
+}
+
+/* ═══════════ FOOTER ═══════════ */
+.foot {
+  padding: 4rem 1.5rem 5rem;
+  text-align: center;
+  background: #0b2018;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+.foot__seal {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 20px 3px rgba(198,161,91,0.5);
+}
+.foot p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--cream-dim);
+  font-size: 1rem;
+}
+
+@media (max-width: 520px) {
+  .field-row { flex-direction: column; }
+  .cd-unit__sep { display: none; }
+}

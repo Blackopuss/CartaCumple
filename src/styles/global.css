@@ -1,0 +1,116 @@
+:root {
+  /* ── Paleta · Esmeralda & Champán ── */
+  /* Tonos oscuros (fondos dramáticos) — se conservan los nombres navy-*
+     por compatibilidad, pero ahora son verde esmeralda profundo */
+  --navy-900: #0b2018;
+  --navy-800: #103025;
+  --navy-700: #164636;
+  --navy-600: #1f5744;
+
+  /* Oro cálido (acento principal) */
+  --gold: #c8a24a;
+  --gold-soft: #e2c684;
+  --gold-deep: #9a7a30;
+
+  /* Claros cálidos (texto sobre oscuro + secciones claras) */
+  --cream: #f4ead7;
+  --cream-dim: #d6c9ae;
+  --champagne: #f6efe1;
+  --champagne-2: #efe3cf;
+
+  /* Tinta oscura (texto sobre secciones claras) */
+  --ink: #17352a;
+  --ink-soft: #566a5f;
+
+  --white: #ffffff;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--navy-900);
+  color: var(--cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+body {
+  /* Lenis controla el scroll */
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--navy-900);
+}
+
+/* Scrollbar minimalista */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--navy-900);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--navy-600);
+  border-radius: 8px;
+}
+
+/* ── Utilidades tipográficas ── */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: clamp(0.65rem, 1.4vw, 0.78rem);
+  color: var(--gold);
+}
+
+.display {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+.divider {
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 1.5rem auto;
+}

@@ -1,0 +1,66 @@
+/* ── Escenario del sobre 3D ── */
+.stage {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background:
+    radial-gradient(120% 90% at 50% 18%, #1f5744 0%, #103025 46%, #0b2018 100%);
+  transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 1.1s;
+}
+
+.stage--revealed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.envelope-canvas {
+  position: absolute !important;
+  inset: 0;
+  touch-action: none;
+}
+
+/* ── Indicación "Toca para abrir" ── */
+.open-hint {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(2.5rem, 8vh, 5rem);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  z-index: 20;
+  animation: floatHint 3s ease-in-out infinite;
+}
+
+.open-hint__seal {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 6px rgba(198, 161, 91, 0.15),
+    0 0 24px 4px rgba(198, 161, 91, 0.5);
+  animation: pulseSeal 2.4s ease-in-out infinite;
+}
+
+.open-hint__text {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--cream);
+  opacity: 0.85;
+}
+
+@keyframes floatHint {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-8px); }
+}
+
+@keyframes pulseSeal {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(198, 161, 91, 0.12), 0 0 24px 4px rgba(198, 161, 91, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(198, 161, 91, 0), 0 0 30px 8px rgba(198, 161, 91, 0.6); }
+}
