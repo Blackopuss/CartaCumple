@@ -5,7 +5,7 @@ export default function EnvelopeScene({ phase, onOpen, onRevealed }) {
   return (
     <Canvas
       className="envelope-canvas"
-      dpr={[1, 2]}
+      dpr={[1, 1.75]}
       gl={{ antialias: true, alpha: true }}
       camera={{ position: [0, 0.1, 5], fov: 38, near: 0.1, far: 100 }}
     >
@@ -19,7 +19,7 @@ export default function EnvelopeScene({ phase, onOpen, onRevealed }) {
       <directionalLight
         position={[-4, 2, 2]}
         intensity={0.6}
-        color="#9fd8be"
+        color="#c9a9e8"
       />
       {/* Destello dorado que resbala sobre el sobre */}
       <pointLight position={[0, -1, 3]} intensity={6} color="#c8a24a" distance={9} />

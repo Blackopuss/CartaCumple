@@ -26,15 +26,23 @@ export const EVENT = {
   // Sección de homenaje — el corazón emotivo de la invitación
   homenaje: {
     eyebrow: 'Cuarenta y Cinco',
-    cita: 'Una vida entera de esfuerzo, fortaleza y amor sin medida.',
+    cita: 'Una vida llena de amor, risas y momentos inolvidables.',
     mensaje:
-      'Hoy celebramos a una mujer admirable: su dedicación, su ejemplo y el cariño que reparte a todos los que la rodean. Gracias por tanto.',
-    // Tres facetas que la definen (mantienen el peso visual de la sección)
+      'Hoy celebramos a una mujer extraordinaria. Gracias por ser un ejemplo y el corazón de esta familia. Este día es para ti.',
+    // Tres facetas que mantienen el peso visual (tarjetas elegantes)
     facetas: [
-      { palabra: 'Fortaleza', detalle: 'La que la mantiene firme ante cualquier reto.' },
-      { palabra: 'Esfuerzo', detalle: 'El trabajo constante que inspira a quienes la rodean.' },
-      { palabra: 'Amor', detalle: 'El que entrega sin medida a su familia y amistades.' },
+      { palabra: 'Amor', detalle: 'El que da sin medida y contagia a todos.' },
+      { palabra: 'Risas', detalle: 'Las que llenan cada reunión de alegría.' },
+      { palabra: 'Momentos', detalle: 'Los que se vuelven recuerdos para siempre.' },
     ],
+  },
+
+  // Música — empieza al abrir el sobre
+  musica: {
+    // Coloca tu canción en la carpeta `public/` y pon aquí su nombre.
+    // Si el archivo no existe, suena un ambiente generado (piano suave).
+    src: '/musica.mp3',
+    volumen: 0.4, // 0 a 1
   },
 
   rsvp: {

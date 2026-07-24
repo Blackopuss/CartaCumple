@@ -1,11 +1,11 @@
 :root {
-  /* ── Paleta · Esmeralda & Champán ── */
+  /* ── Paleta · Amatista & Champán ── */
   /* Tonos oscuros (fondos dramáticos) — se conservan los nombres navy-*
-     por compatibilidad, pero ahora son verde esmeralda profundo */
-  --navy-900: #0b2018;
-  --navy-800: #103025;
-  --navy-700: #164636;
-  --navy-600: #1f5744;
+     por compatibilidad, pero ahora son morado amatista profundo */
+  --navy-900: #150b1e;
+  --navy-800: #1f1230;
+  --navy-700: #2e1a47;
+  --navy-600: #3f2460;
 
   /* Oro cálido (acento principal) */
   --gold: #c8a24a;
@@ -19,8 +19,8 @@
   --champagne-2: #efe3cf;
 
   /* Tinta oscura (texto sobre secciones claras) */
-  --ink: #17352a;
-  --ink-soft: #566a5f;
+  --ink: #2a1b3d;
+  --ink-soft: #6a5c78;
 
   --white: #ffffff;
 

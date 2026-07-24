@@ -3,9 +3,9 @@ import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import gsap from 'gsap';
 
-// Paleta traducida a THREE.Color (Esmeralda & Oro)
-const NAVY = '#164636';
-const NAVY_DARK = '#0f2c22';
+// Paleta traducida a THREE.Color (Amatista & Oro)
+const NAVY = '#3a1f5a';
+const NAVY_DARK = '#241338';
 const CREAM = '#f4ead7';
 const GOLD = '#c8a24a';
 

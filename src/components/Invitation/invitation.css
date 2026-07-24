@@ -26,7 +26,7 @@
   min-height: 100svh;
   justify-content: center;
   overflow: hidden;
-  background: radial-gradient(120% 90% at 50% 8%, #1f5744 0%, #123527 50%, #0b2018 100%);
+  background: radial-gradient(120% 90% at 50% 8%, #3f2460 0%, #26143a 50%, #150b1e 100%);
 }
 
 .hero__bg {
@@ -35,14 +35,17 @@
   height: 130%;
   background:
     radial-gradient(60% 40% at 50% 100%, rgba(200,162,74,0.16), transparent 70%),
-    radial-gradient(50% 50% at 20% 20%, rgba(120,196,164,0.12), transparent 60%),
+    radial-gradient(50% 50% at 20% 20%, rgba(178,140,224,0.14), transparent 60%),
     radial-gradient(50% 50% at 80% 30%, rgba(200,162,74,0.08), transparent 60%);
   pointer-events: none;
+  /* Capa propia en GPU: el parallax mueve el degradado sin repintarlo */
+  will-change: transform;
 }
 
 .hero__inner {
   position: relative;
   max-width: 720px;
+  will-change: transform, opacity;
 }
 
 .hero__title {
@@ -159,15 +162,16 @@
 /* ═══════════ DÓNDE & CUÁNDO ═══════════ */
 .where-section {
   overflow: hidden;
-  background: linear-gradient(180deg, #0b2018, #103025);
+  background: linear-gradient(180deg, #150b1e, #1f1230);
 }
 .where__bg {
   position: absolute;
   inset: -15% -10%;
   background:
     radial-gradient(40% 40% at 15% 30%, rgba(200,162,74,0.12), transparent),
-    radial-gradient(45% 45% at 85% 70%, rgba(120,196,164,0.10), transparent);
+    radial-gradient(45% 45% at 85% 70%, rgba(178,140,224,0.12), transparent);
   pointer-events: none;
+  will-change: transform;
 }
 .where__content {
   position: relative;
@@ -186,19 +190,40 @@
   margin-top: 0.3rem;
 }
 .map-frame {
+  position: relative;
   margin: 2.5rem 0;
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid rgba(198,161,91,0.3);
   box-shadow: 0 30px 60px -30px rgba(0,0,0,0.7);
   aspect-ratio: 16 / 10;
-  background: #08170f;
+  background: #120a1c;
 }
 .map-frame iframe {
   width: 100%;
   height: 100%;
   border: 0;
-  filter: saturate(0.85) contrast(1.05);
+  /* Sin `filter`: aplicarlo a un iframe obliga a recomponerlo en cada scroll */
+}
+
+/* Capa que libera el mapa al tocarlo (evita atrapar el scroll) */
+.map-frame__unlock {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1.1rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: linear-gradient(180deg, transparent 55%, rgba(21, 11, 30, 0.65));
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+.map-frame__unlock:hover {
+  opacity: 1;
 }
 
 /* ═══════════ BOTONES ═══════════ */
@@ -226,7 +251,7 @@
 
 .btn--gold {
   background: linear-gradient(180deg, #e2c684, #c8a24a);
-  color: #0b2018;
+  color: #150b1e;
   box-shadow: 0 12px 30px -12px rgba(200,162,74,0.7);
 }
 .btn--ghost {
@@ -240,7 +265,7 @@
 .btn--whatsapp {
   width: 100%;
   background: linear-gradient(180deg, #e2c684, #c8a24a);
-  color: #0b2018;
+  color: #150b1e;
   padding: 1.1rem;
   box-shadow: 0 14px 34px -14px rgba(200,162,74,0.7);
 }
@@ -260,8 +285,9 @@
   height: 140%;
   background:
     radial-gradient(45% 40% at 50% 25%, rgba(200,162,74,0.14), transparent 70%),
-    radial-gradient(40% 40% at 50% 90%, rgba(31,87,68,0.08), transparent 70%);
+    radial-gradient(40% 40% at 50% 90%, rgba(63,36,96,0.10), transparent 70%);
   pointer-events: none;
+  will-change: transform;
 }
 .tribute__head {
   position: relative;
@@ -310,7 +336,7 @@
   border: 1px solid rgba(154,122,48,0.28);
   border-radius: 14px;
   background: linear-gradient(180deg, #ffffff 0%, #fbf6ec 100%);
-  box-shadow: 0 20px 40px -28px rgba(23,53,42,0.35);
+  box-shadow: 0 20px 40px -28px rgba(42,27,61,0.35);
   text-align: center;
   transition: border-color 0.5s, transform 0.5s var(--ease-lux),
     box-shadow 0.5s;
@@ -318,7 +344,7 @@
 .facet:hover {
   border-color: var(--gold-deep);
   transform: translateY(-4px);
-  box-shadow: 0 26px 46px -26px rgba(23,53,42,0.45);
+  box-shadow: 0 26px 46px -26px rgba(42,27,61,0.45);
 }
 .facet__mark {
   color: var(--gold-deep);
@@ -341,7 +367,7 @@
 
 /* ═══════════ RSVP ═══════════ */
 .rsvp-section {
-  background: radial-gradient(120% 90% at 50% 100%, #1f5744 0%, #103025 55%, #0b2018 100%);
+  background: radial-gradient(120% 90% at 50% 100%, #3f2460 0%, #1f1230 55%, #150b1e 100%);
 }
 .rsvp__card {
   width: 100%;
@@ -349,7 +375,7 @@
   padding: clamp(2rem, 6vw, 3.2rem);
   border-radius: 20px;
   border: 1px solid rgba(200,162,74,0.28);
-  background: linear-gradient(180deg, rgba(31,87,68,0.42), rgba(11,32,24,0.6));
+  background: linear-gradient(180deg, rgba(63,36,96,0.42), rgba(21,11,30,0.6));
   box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8);
 }
 .rsvp__note {
@@ -383,7 +409,7 @@
   width: 100%;
   padding: 0.85rem 1rem;
   border-radius: 10px;
-  background: rgba(8,23,15,0.55);
+  background: rgba(18,10,28,0.55);
   border: 1px solid rgba(200,162,74,0.28);
   color: var(--cream);
   font-family: var(--font-sans);
@@ -411,7 +437,7 @@
 .foot {
   padding: 4rem 1.5rem 5rem;
   text-align: center;
-  background: #0b2018;
+  background: #150b1e;
   display: flex;
   flex-direction: column;
   align-items: center;

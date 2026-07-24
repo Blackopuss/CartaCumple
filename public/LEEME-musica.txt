@@ -1,0 +1,26 @@
+MÚSICA DE LA INVITACIÓN
+=======================
+
+Coloca aquí el archivo de la canción con el nombre:
+
+    musica.mp3
+
+(Es decir: public/musica.mp3)
+
+Se reproduce automáticamente en cuanto alguien toca el sobre para abrir
+la carta, con una entrada suave de 4 segundos y en bucle.
+
+Si NO pones ningún archivo, la invitación reproduce igualmente un
+ambiente de piano generado por el navegador — nunca se queda en silencio.
+
+Puedes cambiar el nombre del archivo y el volumen en src/config.js:
+
+    musica: {
+      src: '/musica.mp3',
+      volumen: 0.4,     // 0 a 1
+    }
+
+Consejos:
+- Recorta la canción al fragmento más bonito (1:30 - 2:00) y exporta a
+  128 kbps: pesa poco y carga rápido en celular.
+- Evita canciones con intro larga o silenciosa: se escucha justo al abrir.

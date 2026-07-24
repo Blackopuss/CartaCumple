@@ -4,7 +4,7 @@
   inset: 0;
   z-index: 10;
   background:
-    radial-gradient(120% 90% at 50% 18%, #1f5744 0%, #103025 46%, #0b2018 100%);
+    radial-gradient(120% 90% at 50% 18%, #3f2460 0%, #1f1230 46%, #150b1e 100%);
   transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
     visibility 1.1s;
 }

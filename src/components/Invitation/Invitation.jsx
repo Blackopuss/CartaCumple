@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,15 +9,25 @@ import './invitation.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const PREFERS_REDUCED_MOTION =
+  typeof window !== 'undefined' &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 export default function Invitation() {
   const rootRef = useRef();
+  const [mapaActivo, setMapaActivo] = useState(false);
 
   // ── Smooth scroll (Lenis) sincronizado con ScrollTrigger ──
   useEffect(() => {
+    // Quien pide menos movimiento se queda con el scroll nativo del sistema
+    if (PREFERS_REDUCED_MOTION) return;
+
     const lenis = new Lenis({
-      duration: 1.15,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      // Duración corta: con valores altos el scroll se siente pesado
+      duration: 0.75,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
+      wheelMultiplier: 1.15,
     });
 
     lenis.on('scroll', ScrollTrigger.update);
@@ -47,13 +57,21 @@ export default function Invitation() {
             scrollTrigger: {
               trigger: el,
               start: 'top 82%',
-              toggleActions: 'play none none reverse',
+              // Sin `reverse`: el elemento se anima una vez y su
+              // ScrollTrigger se autodestruye → nada que recalcular después
+              once: true,
             },
+            // Devuelve el elemento al flujo normal (sin transform residual)
+            clearProps: 'transform',
           }
         );
       });
 
-      // Parallax sutil en fondos marinos
+      // Estas dos animaciones siguen al scroll fotograma a fotograma; se
+      // omiten si el sistema pide menos movimiento.
+      if (PREFERS_REDUCED_MOTION) return;
+
+      // Parallax sutil en los fondos degradados
       self.selector('[data-parallax]').forEach((el) => {
         gsap.to(el, {
           yPercent: 18,
@@ -144,13 +162,23 @@ export default function Invitation() {
             {EVENT.fechaTexto}
           </p>
 
-          <div className="map-frame" data-reveal>
+          <div className={`map-frame ${mapaActivo ? 'is-active' : ''}`} data-reveal>
             <iframe
               title="Mapa del evento"
               src={EVENT.ubicacion.embedUrl}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
+            {/* Hasta que se toca, el mapa no captura la rueda ni el
+                arrastre: si no, el scroll de la página se queda atascado */}
+            {!mapaActivo && (
+              <button
+                className="map-frame__unlock"
+                onClick={() => setMapaActivo(true)}
+              >
+                Toca para mover el mapa
+              </button>
+            )}
           </div>
 
           <div className="btn-row" data-reveal>
