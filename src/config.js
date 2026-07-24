@@ -2,9 +2,9 @@
 //  CONFIGURACIÓN DEL EVENTO — edita todo desde aquí
 // ────────────────────────────────────────────────────────────
 export const EVENT = {
-  celebrante: 'Cristina Venegas',
+  celebrante: 'Cristina Gonzalez',
   edad: 45,
-  titulo: 'Cuarenta y Cinco',
+  titulo: '¡ES HOY!',
   subtitulo: 'Un dia para celebrar la vida',
 
   // Fecha y hora del evento — Domingo 26, 3:00 PM
@@ -25,7 +25,7 @@ export const EVENT = {
 
   // Sección de homenaje — el corazón emotivo de la invitación
   homenaje: {
-    eyebrow: 'Cuarenta y Cinco',
+    eyebrow: '¡ES HOY!',
     cita: 'Una vida llena de amor, risas y momentos inolvidables.',
     mensaje:
       'Hoy celebramos a una mujer extraordinaria. Gracias por ser un ejemplo y el corazón de esta familia. Este día es para ti.',
